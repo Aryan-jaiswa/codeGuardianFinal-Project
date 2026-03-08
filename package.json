@@ -1,0 +1,56 @@
+{
+  "name": "gssar",
+  "version": "1.0.1",
+  "description": "GitHub Secret Scanning Auto Remediator (GSSAR)",
+  "scripts": {
+    "prepare": "husky install",
+    "prettier-write": "npx prettier --write '**/*.{ts,json,md,yaml,yml}'",
+    "prettier-check": "npx prettier --check '**/*.{ts,json,md,yaml,yml}'",
+    "lint-check": "npx eslint '**/*.ts'",
+    "lint-write": "npx eslint --fix '**/*.ts'",
+    "cfn-check": "cfn-lint -t ./template.yml",
+    "check": "yarn run prettier-check && yarn run lint-check && yarn run cfn-check",
+    "write": "yarn run prettier-write && yarn run lint-write",
+    "codespace-setup": ".devcontainer/setup.sh",
+    "upgrade": ".devcontainer/ncu.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/advanced-security/GSSAR.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Code",
+    "Scanning"
+  ],
+  "author": "Nick Liffen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/advanced-security/GSSAR/issues"
+  },
+  "homepage": "https://github.com/advanced-security/GSSAR#readme",
+  "devDependencies": {
+    "@tsconfig/node18": "^1.0.1",
+    "@types/json-schema": "^7.0.11",
+    "@types/node": "^18.11.17",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "8.32.1",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.2",
+    "prettier": "^2.8.1",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.4.1",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "@octokit/rest": "^22.0.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "multer": "^2.1.1",
+    "simple-git": "^3.32.3",
+    "unzipper": "^0.12.3"
+  }
+}
